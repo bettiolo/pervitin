@@ -146,8 +146,10 @@ PERVITIN_DRY_RUN=1 target/release/pervitin   # no sudo, nothing changed
 cargo test --release                          # checks the direct reads against ioreg and pmset
 ```
 
-The demo is rendered by [vhs](https://github.com/charmbracelet/vhs) from
-`docs/pervitin.tape`; the commands are at the top of that file.
+`docs/render-demo.sh` re-renders the demo GIF: it records this checkout's
+build with [vhs](https://github.com/charmbracelet/vhs), following the
+keypresses in `docs/pervitin.tape`, and compresses the result with gifsicle
+(`brew install vhs gifsicle`).
 
 ## The name
 

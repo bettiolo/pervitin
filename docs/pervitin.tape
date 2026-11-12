@@ -1,6 +1,5 @@
-# The demo in the README. A dry run, so no sudo; needs pervitin on the PATH.
-#   vhs docs/pervitin.tape
-#   gifsicle -O3 --lossy=60 --colors 96 pervitin-raw.gif -o docs/pervitin.gif && rm pervitin-raw.gif
+# The demo in the README: what is typed and for how long.
+# Render it with docs/render-demo.sh, which also compresses the result.
 Output pervitin-raw.gif
 Set Shell zsh
 Set FontSize 13
