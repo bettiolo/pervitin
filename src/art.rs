@@ -1,12 +1,12 @@
 //! The art: titles, palettes and everything the avatar says.
 
 pub const BANNER_PERV: [&str; 6] = [
-    "██████╗ ███████╗██████╗ ██╗   ██╗███████╗████████╗██╗███╗   ██╗",
-    "██╔══██╗██╔════╝██╔══██╗██║   ██║██╔════╝╚══██╔══╝██║████╗  ██║",
-    "██████╔╝█████╗  ██████╔╝██║   ██║█████╗     ██║   ██║██╔██╗ ██║",
-    "██╔═══╝ ██╔══╝  ██╔══██╗╚██╗ ██╔╝██╔══╝     ██║   ██║██║╚██╗██║",
-    "██║     ███████╗██║  ██║ ╚████╔╝ ███████╗   ██║   ██║██║ ╚████║",
-    "╚═╝     ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝   ╚═╝   ╚═╝╚═╝  ╚═══╝",
+    "██████╗ ███████╗██████╗ ██╗   ██╗██╗████████╗██╗███╗   ██╗",
+    "██╔══██╗██╔════╝██╔══██╗██║   ██║██║╚══██╔══╝██║████╗  ██║",
+    "██████╔╝█████╗  ██████╔╝██║   ██║██║   ██║   ██║██╔██╗ ██║",
+    "██╔═══╝ ██╔══╝  ██╔══██╗╚██╗ ██╔╝██║   ██║   ██║██║╚██╗██║",
+    "██║     ███████╗██║  ██║ ╚████╔╝ ██║   ██║   ██║██║ ╚████║",
+    "╚═╝     ╚══════╝╚═╝  ╚═╝  ╚═══╝  ╚═╝   ╚═╝   ╚═╝╚═╝  ╚═══╝",
 ];
 
 pub const BANNER_CAF: [&str; 6] = [
@@ -221,4 +221,4 @@ pub const BROWS: &[&str] = &["\\\\\\\\\\     /////", "~~~~~     ~~~~~", "/////  
 
 pub const EEG_LEVELS: [char; 8] = ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'];
 
-pub const HELP: &str = "pervetin: keep the Mac awake on two stimulants, until Ctrl+C.\n\n  pervetin          take both and animate until Ctrl+C / terminal close / kill:\n                      PERVETIN  no sleep at all, lid closed included\n                                (sudo pmset -a disablesleep 1)\n                      CAFFEINE  no idle sleep, and the screen stays on\n                                (caffeinate -dims)\n  pervetin off      re-enable sleep (recovery after a SIGKILL or crash)\n  pervetin status   report whether sleep is currently disabled\n\nKeys: left/right select PERVETIN or CAFFEINE, space starts or stops it\n(so does a click on its title), up/down step through the moods, m mutes\nthe lid sounds, Ctrl+C comes down (a second Ctrl+C skips the animation).\n\nPERVETIN_DRY_RUN=1   animate without touching pmset, sudo or caffeinate\nPERVETIN_NO_INTRO=1  skip the intro and comedown animations\nPERVETIN_QUIET=1     start muted\nPERVETIN_STAGE=name  pin one mood: wired bloodshot paranoid grinding\n                     invincible itchy tripping glitch matrix bsod hal\n                     vaporwave arcade disco transcendent\n                     buzzed jitters chatty productive\n                     or one zen mood: meditate cat tea blanket sunbeam\n                     stargazing smitten humming\n";
+pub const HELP: &str = "pervitin: keep the Mac awake on two stimulants, until Ctrl+C.\n\n  pervitin          take both and animate until Ctrl+C / terminal close / kill:\n                      PERVITIN  no sleep at all, lid closed included\n                                (sudo pmset -a disablesleep 1)\n                      CAFFEINE  no idle sleep, and the screen stays on\n                                (caffeinate -dims)\n  pervitin off      re-enable sleep (recovery after a SIGKILL or crash)\n  pervitin status   report whether sleep is currently disabled\n\nKeys: left/right select PERVITIN or CAFFEINE, space starts or stops it\n(so does a click on its title), up/down step through the moods, m mutes\nthe lid sounds, Ctrl+C comes down (a second Ctrl+C skips the animation).\n\nPERVITIN_DRY_RUN=1   animate without touching pmset, sudo or caffeinate\nPERVITIN_NO_INTRO=1  skip the intro and comedown animations\nPERVITIN_QUIET=1     start muted\nPERVITIN_STAGE=name  pin one mood: wired bloodshot paranoid grinding\n                     invincible itchy tripping glitch matrix bsod hal\n                     vaporwave arcade disco transcendent\n                     buzzed jitters chatty productive\n                     or one zen mood: meditate cat tea blanket sunbeam\n                     stargazing smitten humming\n";

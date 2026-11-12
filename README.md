@@ -1,31 +1,31 @@
-# pervetin
+# Pervitin
 
 Close the lid. Your agents keep working.
 
 You have seen them: people crossing the office, the street, the train
 platform with an open laptop held out like a tray, because closing it would
-put the Mac to sleep and stop their coding agent mid-thought. pervetin keeps
+put the Mac to sleep and stop their coding agent mid-thought. Pervitin keeps
 a Mac awake with the lid closed, so the laptop can go in the crook of an arm
 like a normal object, and shows you a machine that is visibly on something
 while it does.
 
-![pervetin taking both, cycling through a few moods, then coming off them](docs/pervetin.gif)
+![pervitin taking both, cycling through a few moods, then coming off them](docs/pervitin.gif)
 
 It puts the Mac on two stimulants until Ctrl+C, terminal close or `kill`:
 
-- **Pervetin** — `sudo pmset -a disablesleep 1`: no sleep at all, lid closed
+- **Pervitin** — `sudo pmset -a disablesleep 1`: no sleep at all, lid closed
   included.
 - **Caffeine** — `caffeinate -dims`: the screen stays on and there is no idle
-  sleep, but closing the lid still sleeps. Pervetin alone already blocks idle
+  sleep, but closing the lid still sleeps. Pervitin alone already blocks idle
   sleep, so with both on caffeine's contribution is the lit screen.
 
 Sleep is given back when it exits, however it exits.
 
 > [!WARNING]
-> A Mac that cannot sleep with its lid closed gets hot in a bag. Pervetin
+> A Mac that cannot sleep with its lid closed gets hot in a bag. Pervitin
 > asks for your sudo password to change the sleep setting, and keeps the
 > sudo timestamp fresh while it runs so that it can always change it back.
-> If it is killed with SIGKILL, run `pervetin off`.
+> If it is killed with SIGKILL, run `pervitin off`.
 
 ## Install
 
@@ -33,17 +33,17 @@ macOS only. It has been tested on one machine, an M2 MacBook Air; on a Mac
 whose sensors are named differently the chart may say "no thermometer".
 
 ```sh
-brew tap bettiolo/pervetin https://github.com/bettiolo/pervetin
-brew install --HEAD bettiolo/pervetin/pervetin
+brew tap bettiolo/pervitin https://github.com/bettiolo/pervitin
+brew install --HEAD bettiolo/pervitin/pervitin
 ```
 
 There are no tagged releases yet, so Homebrew builds the latest commit
-(it installs Rust for the build). `brew upgrade --fetch-HEAD pervetin`
+(it installs Rust for the build). `brew upgrade --fetch-HEAD pervitin`
 picks up newer commits. In a Brewfile:
 
 ```ruby
-tap "bettiolo/pervetin", "https://github.com/bettiolo/pervetin"
-brew "bettiolo/pervetin/pervetin", args: ["HEAD"]
+tap "bettiolo/pervitin", "https://github.com/bettiolo/pervitin"
+brew "bettiolo/pervitin/pervitin", args: ["HEAD"]
 ```
 
 Or from a checkout: `cargo install --path .`
@@ -51,15 +51,15 @@ Or from a checkout: `cargo install --path .`
 ## Use
 
 ```
-pervetin          take both and animate until Ctrl+C / terminal close / kill
-pervetin off      re-enable sleep (recovery after a SIGKILL or crash)
-pervetin status   report whether sleep is currently disabled
-pervetin help     keys, variables and the list of moods
+pervitin          take both and animate until Ctrl+C / terminal close / kill
+pervitin off      re-enable sleep (recovery after a SIGKILL or crash)
+pervitin status   report whether sleep is currently disabled
+pervitin help     keys, variables and the list of moods
 ```
 
 | Key | What it does |
 |---|---|
-| left / right, tab | select PERVETIN or CAFFEINE |
+| left / right, tab | select PERVITIN or CAFFEINE |
 | space, or a click on a title | start or stop that substance, for real |
 | up / down | step through the moods |
 | m | mute or unmute the lid sounds |
@@ -67,13 +67,13 @@ pervetin help     keys, variables and the list of moods
 
 | Variable | What it does |
 |---|---|
-| `PERVETIN_DRY_RUN=1` | animate without touching pmset, sudo or caffeinate |
-| `PERVETIN_NO_INTRO=1` | skip the intro and comedown animations |
-| `PERVETIN_QUIET=1` | start muted |
-| `PERVETIN_STAGE=name` | pin one mood (`pervetin help` lists them) |
+| `PERVITIN_DRY_RUN=1` | animate without touching pmset, sudo or caffeinate |
+| `PERVITIN_NO_INTRO=1` | skip the intro and comedown animations |
+| `PERVITIN_QUIET=1` | start muted |
+| `PERVITIN_STAGE=name` | pin one mood (`pervitin help` lists them) |
 
 The eyes follow the mouse where the mood allows: the terminal reports the
-mouse while pervetin runs, so hold Shift to select text. It can be touched,
+mouse while pervitin runs, so hold Shift to select text. It can be touched,
 too: click an eye to poke it, click a key to press it, and wiggle the mouse
 over the mouth to tickle.
 
@@ -81,7 +81,7 @@ over the mouth to tickle.
 
 Both names are big titles, each lit while its substance is working and dark
 while it is not. Taking one plays a scene: a spinning capsule pops out of the
-PERVETIN title and dives into the mouth; a mug flies out of the CAFFEINE
+PERVITIN title and dives into the mouth; a mug flies out of the CAFFEINE
 title, tips and pours. Stopping one brings it back up.
 
 What is active decides which moods the laptop drifts through:
@@ -91,7 +91,7 @@ What is active decides which moods the laptop drifts through:
   sunbeam by day or stargazing at night, humming, and being quietly smitten
   with you.
 - **Caffeine alone:** buzzed, jittery, chatty or manically productive.
-- **Pervetin alone:** bloodshot, paranoid (about your busiest process),
+- **Pervitin alone:** bloodshot, paranoid (about your busiest process),
   grinding its teeth, invincible in sunglasses and a crown, itching with
   crawling bugs, and hallucinating fish, ghosts and pink elephants.
 - **Both:** all of the above plus a corrupting glitch, green matrix rain, a
@@ -113,7 +113,7 @@ The stats are a medical chart, each line with a deadpan remark:
 
 Every lid, screen, dose and sleep/wake change is logged with how long the
 previous state lasted, and the log is printed again on exit. Closing the lid
-on pervetin gets a spoken notice and an accelerating heartbeat; opening it
+on pervitin gets a spoken notice and an accelerating heartbeat; opening it
 gets an "I saw everything" greeting.
 
 The layout follows the terminal size: at 110 columns or more the chart sits
@@ -134,25 +134,26 @@ are declared by hand.
   second, twice a second while its window is unfocused, and once a second
   while the lid is shut or the screen is off.
 - **Safety:** Ctrl+C, SIGTERM, SIGHUP and a panic all restore sleep before
-  anything else. `caffeinate` is tied to pervetin's process and stops with it.
+  anything else. `caffeinate` is tied to pervitin's process and stops with it.
 - **Files:** the heartbeat sound is synthesized once into
-  `~/.cache/pervetin/`. Nothing else is written.
+  `~/.cache/pervitin/`. Nothing else is written.
 
 ## Development
 
 ```sh
 cargo build --release
-PERVETIN_DRY_RUN=1 target/release/pervetin   # no sudo, nothing changed
+PERVITIN_DRY_RUN=1 target/release/pervitin   # no sudo, nothing changed
 cargo test --release                          # checks the direct reads against ioreg and pmset
 ```
 
 The demo is rendered by [vhs](https://github.com/charmbracelet/vhs) from
-`docs/pervetin.tape`; the commands are at the top of that file.
+`docs/pervitin.tape`; the commands are at the top of that file.
 
 ## The name
 
-Pervitin was the brand under which methamphetamine was sold in Germany from
-1938. This program is a joke about a laptop, not an endorsement.
+It is named after Pervitin, the brand under which methamphetamine was sold
+in Germany from 1938. This program is a joke about a laptop, not an
+endorsement.
 
 ## License
 

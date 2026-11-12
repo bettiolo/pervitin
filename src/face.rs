@@ -1116,7 +1116,7 @@ impl App {
             self.c = 246;
             self.c2 = 46;
             self.r_eye = "⏻".into();
-            self.r_sweat = "pervetinOS".into();
+            self.r_sweat = "pervitinOS".into();
             self.sweat_color = fg(245);
             self.r_m1 = format!("[{}{}]", rep('█', n), rep('░', 12 - n));
             self.m_color = fg(46);
@@ -1177,7 +1177,7 @@ impl App {
         let big = self.pill_big_r;
         self.jitter = 0;
         if t < SWOOP {
-            // One flight, straight from the PERVETIN title into the mouth:
+            // One flight, straight from the PERVITIN title into the mouth:
             // it pops out as a speck, swells as if coming at you while it
             // arcs out to the right, then curls in and shrinks into the
             // mouth. With no title on screen it comes in from the right
@@ -1244,7 +1244,7 @@ impl App {
         }
     }
 
-    /// Stopping pervetin: it retches, spits the pill back out along the
+    /// Stopping pervitin: it retches, spits the pill back out along the
     /// swoop in reverse (growing as it comes, off the right edge), and then
     /// the colours drain away and reality comes back.
     fn scene_crash_perv(&mut self) {

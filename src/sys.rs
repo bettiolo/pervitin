@@ -1,5 +1,5 @@
 //! The operating system: terminal modes, signals, clocks, and the handful of
-//! commands pervetin runs. macOS only, and no crates: the few libc calls
+//! commands pervitin runs. macOS only, and no crates: the few libc calls
 //! needed are declared here.
 use std::ffi::c_void;
 use std::process::{Command, Stdio};

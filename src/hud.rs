@@ -397,7 +397,7 @@ impl App {
         // is too small for the titles, these lines also carry the selection.
         for i in 1..=2 {
             let (name, on, color, mut effect) = if i == 1 {
-                ("PERVETIN", self.perv, 226, "ϟ awake even with the lid closed".to_string())
+                ("PERVITIN", self.perv, 226, "ϟ awake even with the lid closed".to_string())
             } else {
                 ("CAFFEINE", self.caf, 172, "screen stays on, no idle sleep".to_string())
             };

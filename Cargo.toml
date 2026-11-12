@@ -1,12 +1,12 @@
 [package]
-name = "pervetin"
+name = "pervitin"
 version = "1.0.0"
 edition = "2021"
 description = "Keep the Mac awake on two stimulants, with an avatar that shows it"
 authors = ["Marco Bettiolo"]
 license = "MIT"
-repository = "https://github.com/bettiolo/pervetin"
-homepage = "https://github.com/bettiolo/pervetin"
+repository = "https://github.com/bettiolo/pervitin"
+homepage = "https://github.com/bettiolo/pervitin"
 readme = "README.md"
 keywords = ["macos", "sleep", "caffeinate", "tui"]
 categories = ["command-line-utilities"]

@@ -1,6 +1,6 @@
-//! pervetin: keep the Mac awake on two stimulants, until Ctrl+C.
+//! pervitin: keep the Mac awake on two stimulants, until Ctrl+C.
 //!
-//! PERVETIN is `sudo pmset -a disablesleep 1` (no sleep at all, lid closed
+//! PERVITIN is `sudo pmset -a disablesleep 1` (no sleep at all, lid closed
 //! included); CAFFEINE is `caffeinate -dims` (no idle sleep, screen stays
 //! on). Everything else is an animated ASCII laptop that shows how it feels
 //! about that, and a medical chart of the machine's vitals.
@@ -303,9 +303,9 @@ impl App {
             .unwrap_or(now as i64);
         App {
             dry_run,
-            no_anim: env("PERVETIN_NO_INTRO"),
-            forced_stage: std::env::var("PERVETIN_STAGE").ok().and_then(|s| stage_name(&s)),
-            muted: env("PERVETIN_QUIET"),
+            no_anim: env("PERVITIN_NO_INTRO"),
+            forced_stage: std::env::var("PERVITIN_STAGE").ok().and_then(|s| stage_name(&s)),
+            muted: env("PERVITIN_QUIET"),
             perv: true,
             caf: true,
             vis_perv: false,
@@ -445,7 +445,7 @@ impl App {
         }
     }
 
-    /// Caffeine: -w makes caffeinate quit by itself when pervetin dies, even
+    /// Caffeine: -w makes caffeinate quit by itself when pervitin dies, even
     /// on SIGKILL.
     fn set_caffeine(&mut self, on: bool) {
         if on {
@@ -513,7 +513,7 @@ impl App {
         });
         if !self.dry_run {
             // Keep the sudo timestamp fresh so the comedown never needs a
-            // password. Dies with pervetin, so sudo is not kept warm forever.
+            // password. Dies with pervitin, so sudo is not kept warm forever.
             std::thread::spawn(|| loop {
                 let _ = Command::new("/usr/bin/sudo")
                     .args(["-n", "-v"])
@@ -622,7 +622,7 @@ impl App {
             return;
         }
         if !open {
-            // Only pervetin survives a closed lid, so only then is there news.
+            // Only pervitin survives a closed lid, so only then is there news.
             if self.perv {
                 self.sound("closed");
             }
@@ -642,7 +642,7 @@ impl App {
     }
 
     /// Moods rotate at random; which ones are on offer depends on the doses.
-    /// Caffeine alone is merely jittery, pervetin alone goes properly wrong,
+    /// Caffeine alone is merely jittery, pervitin alone goes properly wrong,
     /// and together they unlock the deep end.
     fn pick_stage(&mut self) {
         const BOTH: [&str; 17] = [
@@ -707,11 +707,11 @@ impl App {
             if self.perv {
                 self.perv = false;
                 self.vis_perv = false;
-                self.log_note(208, "pervetin stopped   closing the lid sleeps again");
+                self.log_note(208, "pervitin stopped   closing the lid sleeps again");
                 self.start_scene(Scene::CrashPerv);
             } else {
                 self.perv = true;
-                self.log_note(46, "pervetin taken     awake with the lid closed");
+                self.log_note(46, "pervitin taken     awake with the lid closed");
                 self.start_scene(Scene::Pill);
             }
         } else {
@@ -1069,7 +1069,7 @@ impl App {
         keyed
     }
 
-    /// Which title, 1 for PERVETIN or 2 for CAFFEINE, is under this cell:
+    /// Which title, 1 for PERVITIN or 2 for CAFFEINE, is under this cell:
     /// its letters or the ON/OFF label beneath them.
     fn title_at(&self, x: i64, y: i64) -> Option<i32> {
         let (pw, cw) = self.title_w.filter(|_| self.show_banner)?;
@@ -1098,7 +1098,7 @@ impl App {
         let status = if self.restored == Some(true) {
             "\x1b[1;32mSleep re-enabled.\x1b[0m"
         } else {
-            "\x1b[1;31mFAILED to re-enable sleep — run: pervetin off\x1b[0m"
+            "\x1b[1;31mFAILED to re-enable sleep — run: pervitin off\x1b[0m"
         };
         let mut text =
             format!("\n  \x1b[38;5;117m(-_-) zzZ\x1b[0m  coming down after {} of pure wakefulness", duration(elapsed));
@@ -1119,7 +1119,7 @@ impl App {
 }
 
 fn main() {
-    let dry_run = std::env::var("PERVETIN_DRY_RUN").map(|v| v == "1").unwrap_or(false);
+    let dry_run = std::env::var("PERVITIN_DRY_RUN").map(|v| v == "1").unwrap_or(false);
     match std::env::args().nth(1).as_deref() {
         Some("off") => {
             if dry_run || sys::set_disablesleep(false, false) {
@@ -1142,18 +1142,18 @@ fn main() {
         }
         None => {}
         Some(other) => {
-            eprintln!("pervetin: unknown argument '{}' (try: pervetin help)", other);
+            eprintln!("pervitin: unknown argument '{}' (try: pervitin help)", other);
             std::process::exit(2);
         }
     }
     if !sys::stdout_is_tty() {
-        eprintln!("pervetin: needs an interactive terminal");
+        eprintln!("pervitin: needs an interactive terminal");
         std::process::exit(1);
     }
 
     if !dry_run {
         if sys::sleep_disabled() {
-            println!("pervetin: sleep was already disabled; it will be re-enabled on exit.");
+            println!("pervitin: sleep was already disabled; it will be re-enabled on exit.");
         }
         let primed = Command::new("/usr/bin/sudo").arg("-v").status().map(|s| s.success()).unwrap_or(false);
         if !primed || !sys::set_disablesleep(true, false) {
@@ -1167,7 +1167,7 @@ fn main() {
         if !dry_run {
             sys::set_disablesleep(false, true);
         }
-        let _ = writeln!(std::io::stderr(), "pervetin: {info}\npervetin: if sleep is still disabled, run: pervetin off");
+        let _ = writeln!(std::io::stderr(), "pervitin: {info}\npervitin: if sleep is still disabled, run: pervitin off");
     }));
     sys::seed();
     sys::trap_signals();

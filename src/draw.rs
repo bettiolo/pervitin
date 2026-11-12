@@ -13,7 +13,7 @@ const ECG_SPEEDS: [f64; 3] = [10.0, 20.0, 34.0]; // columns per second, by doses
 const EEG_STEP: [f64; 3] = [0.35, 0.7, 1.4]; // radians per column, by doses
 const ECG_BEAT: [f64; 7] = [2.0, 1.0, 8.0, 4.0, 1.0, 3.0, 3.0]; // one beat at full load
 
-/// PERVETIN in the banner's own font, solid blocks only.
+/// PERVITIN in the banner's own font, solid blocks only.
 fn pill_mask() -> &'static Vec<Vec<bool>> {
     static MASK: OnceLock<Vec<Vec<bool>>> = OnceLock::new();
     MASK.get_or_init(|| BANNER_PERV.iter().map(|row| row.chars().map(|ch| ch == '█').collect()).collect())
@@ -33,7 +33,7 @@ fn cache_dir() -> std::path::PathBuf {
     let base = std::env::var_os("XDG_CACHE_HOME").map(std::path::PathBuf::from).unwrap_or_else(|| {
         std::path::PathBuf::from(std::env::var_os("HOME").unwrap_or_default()).join(".cache")
     });
-    base.join("pervetin")
+    base.join("pervitin")
 }
 
 /// The heartbeat as an 8-bit mono WAV, three seconds long, speeding up or
@@ -407,7 +407,7 @@ impl App {
 
     /// An old-school two-tone capsule drawn with half blocks (▀/▄), so each
     /// terminal cell holds two square "pixels". It is lit from the top left
-    /// and spins about its long axis with PERVETIN printed around it.
+    /// and spins about its long axis with PERVITIN printed around it.
     /// Appended to `out` as cursor-addressed spans: centre column,row
     /// (cells), radius in pixels (= height in rows), spin in radians.
     pub fn render_pill(&self, out: &mut String) {
